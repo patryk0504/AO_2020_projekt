@@ -1,0 +1,98 @@
+function wsp = wspolczynniki_train()
+    ids_a = imageDatastore('dataset/a');
+    ids_b = imageDatastore('dataset/b');
+    ids_c = imageDatastore('dataset/c');    
+    ids_d = imageDatastore('dataset/d');
+    ids_e = imageDatastore('dataset/e');
+    ids_f = imageDatastore('dataset/f');
+    ids_g = imageDatastore('dataset/g');
+    ids_h = imageDatastore('dataset/h');
+    ids_i = imageDatastore('dataset/i');
+    ids_j = imageDatastore('dataset/j');
+    ids_k = imageDatastore('dataset/k');
+    ids_l = imageDatastore('dataset/l');
+    ids_m = imageDatastore('dataset/m');
+    ids_n = imageDatastore('dataset/n');
+    ids_o = imageDatastore('dataset/o');
+    ids_p = imageDatastore('dataset/p');
+    ids_q = imageDatastore('dataset/q');
+    ids_r = imageDatastore('dataset/r');
+    ids_s = imageDatastore('dataset/s');
+    ids_t = imageDatastore('dataset/t');
+    ids_u = imageDatastore('dataset/u');
+    ids_v = imageDatastore('dataset/v');
+    ids_w = imageDatastore('dataset/w');
+    ids_x = imageDatastore('dataset/x');
+    ids_y = imageDatastore('dataset/y');
+    ids_z = imageDatastore('dataset/z');
+
+    wa = wczytaj(ids_a);
+    wb = wczytaj(ids_b);
+    wc = wczytaj(ids_c);
+    wd = wczytaj(ids_d);
+    we = wczytaj(ids_e);
+    wf = wczytaj(ids_f);
+    wg = wczytaj(ids_g);
+    wh = wczytaj(ids_h);
+    wi = wczytaj(ids_i);
+    wj = wczytaj(ids_j);
+    wk = wczytaj(ids_k);
+    wl = wczytaj(ids_l);
+    wm = wczytaj(ids_m);
+    wn = wczytaj(ids_n);
+    wo = wczytaj(ids_o);
+    wp = wczytaj(ids_p);
+    wq = wczytaj(ids_q);
+    wr = wczytaj(ids_r);
+    ws = wczytaj(ids_s);
+    wt = wczytaj(ids_t);
+    wu = wczytaj(ids_u);
+    wv = wczytaj(ids_v);
+    ww = wczytaj(ids_w);
+    wx = wczytaj(ids_x);
+    wy = wczytaj(ids_y);
+    wz = wczytaj(ids_z);
+
+    trainin = [wa;wb;wc;wd;we;wf;wg;wh;wi;wj;wk;wl;wm;wn;wo;wp;wq;wr;ws;wt;wu;wv;ww;wx;wy;wz]';
+
+    trainout = [repmat([1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], length_w(wa),1);
+    repmat([0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], length_w(wb),1);
+    repmat([0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], length_w(wc),1);
+    repmat([0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], length_w(wd),1);
+    repmat([0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], length_w(we),1);
+    repmat([0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], length_w(wf),1);
+    repmat([0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], length_w(wg),1);
+    repmat([0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], length_w(wh),1);
+    repmat([0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], length_w(wi),1);
+    repmat([0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], length_w(wj),1);
+    repmat([0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], length_w(wk),1);
+    repmat([0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0], length_w(wl),1);
+    repmat([0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0], length_w(wm),1);
+    repmat([0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0], length_w(wn),1);
+    repmat([0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0], length_w(wo),1);
+    repmat([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0], length_w(wp),1);
+    repmat([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0], length_w(wq),1);
+    repmat([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0], length_w(wr),1);
+    repmat([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0], length_w(ws),1);
+    repmat([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0], length_w(wt),1);
+    repmat([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0], length_w(wu),1);
+    repmat([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0], length_w(wv),1);
+    repmat([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0], length_w(ww),1);
+    repmat([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0], length_w(wx),1);
+    repmat([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], length_w(wy),1);
+    repmat([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1], length_w(wz),1)]';
+
+
+nn = feedforwardnet(50);
+nn.adaptFcn = 'adaptwb';
+nn.divideFcn = 'dividerand';
+nn.divideMode = 'sample';
+nn.layers{1}.transferFcn = 'logsig';
+nn.layers{2}.transferFcn = 'tansig';
+nn.trainFcn = 'trainlm';
+nn.performFcn = 'mse';
+nn = train(nn,trainin,trainout);
+
+ocr_final_8_new = nn;
+save ocr_final_8_new;
+end
